@@ -5,9 +5,13 @@ class ColorBox extends Component {
     render() {
         const {name, background} = this.props;
         return (
-            <div style={ {background:this.props.background} } className="ColorBox">
-                <span>{this.props.name}</span>
-                <span>MORE</span>
+            <div style={ {background: background} } className="ColorBox">
+                <div className="copy-container"></div>
+                <div className="box-content">
+                    <span>{name}</span>
+                </div>
+                <button className="copy-button">Copy</button>
+                <span className="see-more">More</span>
             </div>
         );
     }
