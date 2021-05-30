@@ -26,3 +26,8 @@
     border: none;
     opacity: 0;
 }
+
+.ColorBox:hover .copy-button {
+    opacity: 1;
+    transition: 0.5s
+}
