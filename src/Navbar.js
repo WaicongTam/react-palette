@@ -19,9 +19,16 @@ class Navbar extends Component {
                             min={100} 
                             max={900}
                             step={100}
-                            onAfterChange={ changeLevel }
+                            onAfterChange={ handleChangeLevel }
                         />
                     </div>
+                </div>
+                <div className="select-container">
+                    <Select value={format} onChange={ this.handleChangeFormat }>
+                        <MenuItem value='hex'>HEX - #ffffff</MenuItem>
+                        <MenuItem value='rgb'>RGB - rgb(255, 255, 255)</MenuItem>
+                        <MenuItem value='rgba'>RGBA - rgba(255, 255, 255, 0)</MenuItem>
+                    </Select>
                 </div>
 
             </header>
