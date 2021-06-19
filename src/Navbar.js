@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import 'rc-slider/assets/index.css';
 import Slider from 'rc-slider';
 import './Navbar.css';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 class Navbar extends Component {
     render() {
