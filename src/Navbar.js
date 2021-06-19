@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import 'rc-slider/assets/index.css';
 import Slider from 'rc-slider';
+import './Navbar.css';
 
 class Navbar extends Component {
     render() {
+        const { level, changeLevel } = this.props;
         return (
             <header className="Navbar">
                 <div className="logo">
@@ -12,11 +14,11 @@ class Navbar extends Component {
 
                 <div className="slider">
                     <Slider 
-                        defaultValue={level} 
+                        defaultValue={ level } 
                         min={100} 
                         max={900}
                         step={100}
-                        onAfterChange={this.changeLevel}
+                        onAfterChange={ changeLevel }
                     />
                 </div>
 
