@@ -11,15 +11,17 @@ class Navbar extends Component {
                 <div className="logo">
                     <a href='#'>react-palette</a>
                 </div>
-
-                <div className="slider">
-                    <Slider 
-                        defaultValue={ level } 
-                        min={100} 
-                        max={900}
-                        step={100}
-                        onAfterChange={ changeLevel }
-                    />
+                <div className="slider-container">
+                    <span>Level: { level }</span>
+                    <div className="slider">
+                        <Slider 
+                            defaultValue={ level } 
+                            min={100} 
+                            max={900}
+                            step={100}
+                            onAfterChange={ changeLevel }
+                        />
+                    </div>
                 </div>
 
             </header>
