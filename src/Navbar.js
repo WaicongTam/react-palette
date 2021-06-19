@@ -6,8 +6,24 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 class Navbar extends Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            format: 'hex',
+        };
+
+        this.handleChangeFormat = this.handleChangeFormat.bind(this);
+    }
+
+    handleChangeFormat(e) {
+        this.setState({ format: e.target.value });
+        this.props.handleChangeFormat(e.target.value)
+    }
+
     render() {
-        const { level, changeLevel } = this.props;
+        const { level, handleChangeLevel, handleChangeFormat } = this.props;
+        const { format } = this.state;
         return (
             <header className="Navbar">
                 <div className="logo">
