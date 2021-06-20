@@ -4,6 +4,9 @@ import Slider from 'rc-slider';
 import './Navbar.css';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
 class Navbar extends Component {
     
@@ -11,9 +14,15 @@ class Navbar extends Component {
         super(props);
         this.state = {
             format: 'hex',
+            open: true
         };
 
         this.handleChangeFormat = this.handleChangeFormat.bind(this);
+        this.closeSnackbar = this.closeSnackbar.bind(this);
+    }
+
+    closeSnackbar() {
+        this.setState({open: false});
     }
 
     handleChangeFormat(e) {
@@ -48,7 +57,19 @@ class Navbar extends Component {
                         <MenuItem value='rgba'>RGBA - rgba(255, 255, 255, 0)</MenuItem>
                     </Select>
                 </div>
-
+                <Snackbar
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'left'}}
+                    open={this.state.open}
+                    autoHideDuration={3000}
+                    onClose={this.closeSnackbar}
+                    message={<span id="message-id">Format Changed</span>}
+                    ContentProps={{
+                        "aria-describedby": 'message-id'
+                    }}
+                    action={[<IconButton color="inherit" key='close' aria-label='close'>
+                                <CloseIcon onClick={this.closeSnackbar}/>
+                            </IconButton>]}
+                />
             </header>
         );
     }
