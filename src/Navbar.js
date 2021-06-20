@@ -14,7 +14,7 @@ class Navbar extends Component {
         super(props);
         this.state = {
             format: 'hex',
-            open: true
+            open: false
         };
 
         this.handleChangeFormat = this.handleChangeFormat.bind(this);
@@ -26,7 +26,7 @@ class Navbar extends Component {
     }
 
     handleChangeFormat(e) {
-        this.setState({ format: e.target.value });
+        this.setState({ format: e.target.value, open: true });
         this.props.handleChangeFormat(e.target.value)
     }
 
@@ -62,7 +62,7 @@ class Navbar extends Component {
                     open={this.state.open}
                     autoHideDuration={3000}
                     onClose={this.closeSnackbar}
-                    message={<span id="message-id">Format Changed</span>}
+                    message={<span id="message-id">Format changed to {format.toUpperCase()}</span>}
                     ContentProps={{
                         "aria-describedby": 'message-id'
                     }}
